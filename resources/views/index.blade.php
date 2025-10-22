@@ -12,7 +12,7 @@
     <aside class="sidebar">
         <div class="logo">
             <div class="logo-icon">🎓</div>
-            <span class="logo-text">SEIJ UMS</span>
+            <span class="logo-text">SEU UMS</span>
         </div>
 
         <nav class="nav-menu">
@@ -242,7 +242,7 @@
                         <div class="info-details">
                             <div class="info-row">
                                 <span class="info-key">Code</span>
-                                <span class="info-value">2024000010072</span>
+                                <span class="info-value">2024000000000</span>
                             </div>
                             <div class="info-row">
                                 <span class="info-key">ID</span>
@@ -284,15 +284,15 @@
                                     <div class="growth-label">Spring 2024</div>
                                 </div>
                                 <div class="growth-card">
-                                    <div class="growth-value">3.18</div>
+                                    <div class="growth-value">3.83</div>
                                     <div class="growth-label">Fall 2024</div>
                                 </div>
                                 <div class="growth-card">
-                                    <div class="growth-value">3.48</div>
+                                    <div class="growth-value">3.83</div>
                                     <div class="growth-label">Fall 2024</div>
                                 </div>
                                 <div class="growth-card">
-                                    <div class="growth-value">3.31</div>
+                                    <div class="growth-value">3.83</div>
                                     <div class="growth-label">Summer 2025</div>
                                 </div>
                             </div>
@@ -326,7 +326,7 @@
 
         <!-- Footer -->
         <footer class="footer">
-            <p>SEIJ ISDT © 2025</p>
+            <p>Prantik Paul© 2025</p>
         </footer>
     </main>
 
