@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>SEIJ UMS - Student Dashboard</title>
+    <link rel="stylesheet" href="{{ asset('styles.css') }}">
+</head>
+<body>
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🎓</div>
+            <span class="logo-text">SEIJ UMS</span>
+        </div>
+
+        <nav class="nav-menu">
+            <div class="nav-item active">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <rect x="3" y="3" width="7" height="7" rx="1"/>
+                    <rect x="14" y="3" width="7" height="7" rx="1"/>
+                    <rect x="3" y="14" width="7" height="7" rx="1"/>
+                    <rect x="14" y="14" width="7" height="7" rx="1"/>
+                </svg>
+                <span class="nav-text">Dashboard</span>
+            </div>
+
+            <div class="nav-section-title">LEARNING MANAGEMENT SYSTEM</div>
+            
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                </svg>
+                <span class="nav-text">Preregistration</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"/>
+                </svg>
+                <span class="nav-text">Course Advising</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/>
+                </svg>
+                <span class="nav-text">Advising Table</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9z"/>
+                </svg>
+                <span class="nav-text">Registration History</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                </svg>
+                <span class="nav-text">Admit-card</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zM9 17H7v-7h2v7zm4 0h-2V7h2v10zm4 0h-2v-4h2v4z"/>
+                </svg>
+                <span class="nav-text">Grades</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zM6 4h5v8l-2.5-1.5L6 12V4z"/>
+                </svg>
+                <span class="nav-text">Curriculum Details</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <span class="nav-text">Curriculum Analysis</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"/>
+                </svg>
+                <span class="nav-text">Teaching Evaluation</span>
+            </div>
+
+            <div class="nav-section-title">ACCOUNTS</div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                </svg>
+                <span class="nav-text">Student Ledger</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                </svg>
+                <span class="nav-text">Online Payment</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zm2 16H8v-2h8v2zm0-4H8v-2h8v2zm-3-5V3.5L18.5 9H13z"/>
+                </svg>
+                <span class="nav-text">Money Receipt</span>
+            </div>
+
+            <div class="nav-item">
+                <svg class="nav-icon" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M14 2H6c-1.1 0-1.99.9-1.99 2L4 20c0 1.1.89 2 1.99 2H18c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z"/>
+                </svg>
+                <span class="nav-text">Tuition Fee Waiver</span>
+            </div>
+
+            <div class="nav-section-title">OTHER</div>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <button class="menu-toggle">☰</button>
+            <div class="header-actions">
+                <button class="icon-btn" title="Text">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M9.93 13.5h4.14L12 7.98zM20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-4.05 16.5l-1.14-3H9.17l-1.12 3H5.96l5.11-13h1.86l5.11 13h-2.09z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="Fullscreen">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="Search">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="Bookmark">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17 3H7c-1.1 0-2 .9-2 2v16l7-3 7 3V5c0-1.1-.9-2-2-2z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="Messages">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </button>
+                <button class="icon-btn" title="Notifications">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z"/>
+                    </svg>
+                </button>
+                <div class="user-avatar">
+                    <img src="https://i.pravatar.cc/80" alt="User">
+                </div>
+            </div>
+        </header>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section">
+            <h1 class="welcome-title">Welcome back !</h1>
+            <p class="welcome-subtitle">
+                <span class="home-icon">🏠</span>
+                Hi there, Daddy! Just wanted to pop in and wish you a day as fantastic as you are!
+            </p>
+        </section>
+
+        <!-- Dashboard Content -->
+        <div class="dashboard-container">
+            <div class="dashboard-header">
+                <h2>Student Dashboard</h2>
+                <button class="settings-btn">⚙️</button>
+            </div>
+
+            <!-- Tabs -->
+            <div class="tabs">
+                <button class="tab active">About</button>
+                <button class="tab">Registered Courses</button>
+                <button class="tab">Class Attendance</button>
+            </div>
+
+            <!-- Stats Cards -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">📋</div>
+                    <div class="stat-number blue">0</div>
+                    <div class="stat-label">Preregistered Courses</div>
+                    <div class="stat-detail">Total: <strong>0 Credits</strong></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📄</div>
+                    <div class="stat-number orange">0</div>
+                    <div class="stat-label">Registered Course</div>
+                    <div class="stat-detail">Total: <strong>0 Credits</strong></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📊</div>
+                    <div class="stat-number purple">67</div>
+                    <div class="stat-label">Credits Completed</div>
+                    <div class="stat-detail">Attempted: <strong>67 Credits</strong></div>
+                    <div class="stat-detail">Waived Credits: <strong>21 Credits</strong></div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">📝</div>
+                    <div class="stat-number green">৳ 7.50</div>
+                    <div class="stat-label">Advanced Payment</div>
+                </div>
+            </div>
+
+            <!-- Basic Information -->
+            <div class="info-section">
+                <h3>Basic Information</h3>
+                <div class="info-grid">
+                    <!-- Student Profile -->
+                    <div class="student-profile">
+                        <div class="profile-card">
+                            <img src="https://i.pravatar.cc/150?img=12" alt="Prantik Paul" class="profile-img">
+                            <h4>Prantik Paul</h4>
+                            <p class="batch">Batch: 19</p>
+                            <p class="program">BSc in CSE (Diploma Students)</p>
+                            <button class="view-profile-btn">
+                                <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16">
+                                    <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                                </svg>
+                                View full profile
+                            </button>
+                        </div>
+                        <div class="info-details">
+                            <div class="info-row">
+                                <span class="info-key">Code</span>
+                                <span class="info-value">2024000010072</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-key">ID</span>
+                                <span class="info-value">023241000510167Z</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-key">Program</span>
+                                <span class="info-value">BSc in CSE (Diploma Students)</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-key">Starting Semester</span>
+                                <span class="info-value">Spring 2024</span>
+                            </div>
+                            <div class="info-row">
+                                <span class="info-key">Last Semester</span>
+                                <span class="info-value">Summer 2025</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Adviser Section -->
+                    <div class="adviser-section">
+                        <h4 class="adviser-title">Adviser</h4>
+                        <div class="adviser-card">
+                            <div class="adviser-icon">👤</div>
+                            <h5>No Adviser Decided Yet!</h5>
+                            <p>Your adviser information will appear here very soon.</p>
+                        </div>
+
+                        <!-- Growth Section -->
+                        <div class="growth-section">
+                            <div class="growth-header">
+                                <h4>Your Growth 📈</h4>
+                                <button class="collapse-btn">^</button>
+                            </div>
+                            <div class="growth-grid">
+                                <div class="growth-card">
+                                    <div class="growth-value">3.83</div>
+                                    <div class="growth-label">Spring 2024</div>
+                                </div>
+                                <div class="growth-card">
+                                    <div class="growth-value">3.18</div>
+                                    <div class="growth-label">Fall 2024</div>
+                                </div>
+                                <div class="growth-card">
+                                    <div class="growth-value">3.48</div>
+                                    <div class="growth-label">Fall 2024</div>
+                                </div>
+                                <div class="growth-card">
+                                    <div class="growth-value">3.31</div>
+                                    <div class="growth-label">Summer 2025</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Class Information -->
+            <div class="class-section">
+                <h3>Class Information</h3>
+                <div class="class-tabs">
+                    <button class="class-tab">Daily</button>
+                    <button class="class-tab">Weekly</button>
+                    <button class="class-tab active">Overview</button>
+                </div>
+                <table class="class-table">
+                    <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Course Title</th>
+                            <th>Schedule</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Empty table body -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>SEIJ ISDT © 2025</p>
+        </footer>
+    </main>
+
+    <script src="{{ asset('script.js') }}"></script>
+</body>
+</html>
