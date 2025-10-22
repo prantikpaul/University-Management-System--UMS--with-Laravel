@@ -114,27 +114,20 @@ document.addEventListener('DOMContentLoaded', async function() {
         loginBtn.classList.add('loading');
         loginBtn.disabled = true;
 
-        // First get CSRF cookie, then make login request
-        fetch('/sanctum/csrf-cookie', {
-            method: 'GET',
-            credentials: 'same-origin'
-        })
-        .then(() => {
-            // Now make the actual login call
-            return fetch('/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json',
-                    'X-CSRF-TOKEN': getCsrfToken()
-                },
-                credentials: 'same-origin',
-                body: JSON.stringify({
-                    studentId: studentId,
-                    password: password,
-                    rememberMe: rememberMe
-                })
-            });
+        // Make the login call directly (CSRF cookie handled by Laravel)
+        fetch('/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json',
+                'X-CSRF-TOKEN': getCsrfToken()
+            },
+            credentials: 'same-origin',
+            body: JSON.stringify({
+                studentId: studentId,
+                password: password,
+                rememberMe: rememberMe
+            })
         })
         .then(response => response.json())
         .then(data => {

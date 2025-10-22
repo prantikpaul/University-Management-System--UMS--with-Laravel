@@ -69,13 +69,11 @@ document.addEventListener('DOMContentLoaded', () => {
 // Check Authentication
 async function checkAuth() {
     try {
-        const response = await fetch('/user', {
+        const response = await fetch('/api/user', {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': getCsrfToken()
-            },
-            credentials: 'same-origin'
+                'Content-Type': 'application/json'
+            }
         });
 
         if (!response.ok) {
@@ -109,13 +107,11 @@ async function checkAuth() {
 // Load Students
 async function loadStudents() {
     try {
-        const response = await fetch('/admin/students', {
+        const response = await fetch('/api/admin/students', {
             headers: {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': getCsrfToken()
-            },
-            credentials: 'same-origin'
+                'Content-Type': 'application/json'
+            }
         });
 
         if (!response.ok) {
@@ -266,8 +262,8 @@ async function saveStudent(e) {
 
     try {
         const url = isEdit 
-            ? `/admin/students/${studentId}` 
-            : `/admin/students`;
+            ? `/api/admin/students/${studentId}` 
+            : `/api/admin/students`;
         
         const method = isEdit ? 'PUT' : 'POST';
 
@@ -275,10 +271,8 @@ async function saveStudent(e) {
             method: method,
             headers: {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': getCsrfToken()
+                'Content-Type': 'application/json'
             },
-            credentials: 'same-origin',
             body: JSON.stringify(formData)
         });
 
@@ -309,14 +303,12 @@ async function deleteStudent() {
     if (!deleteStudentId) return;
 
     try {
-        const response = await fetch(`/admin/students/${deleteStudentId}`, {
+        const response = await fetch(`/api/admin/students/${deleteStudentId}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': getCsrfToken()
-            },
-            credentials: 'same-origin'
+                'Content-Type': 'application/json'
+            }
         });
 
         const data = await response.json();
@@ -349,14 +341,12 @@ function closeDeleteModal() {
 // Logout
 async function logout() {
     try {
-        await fetch('/logout', {
+        await fetch('/api/logout', {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${authToken}`,
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': getCsrfToken()
-            },
-            credentials: 'same-origin'
+                'Content-Type': 'application/json'
+            }
         });
     } catch (error) {
         console.error('Logout error:', error);
